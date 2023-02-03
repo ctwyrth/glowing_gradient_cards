@@ -18,63 +18,67 @@ body {
 .container {
    position: relative;
    display: flex;
-   justify-content: space-around;
+   justify-content: space-evenly;
    align-items: center;
    flex-wrap: wrap;
-   padding: 50px;
+   padding: 20px;
 }
 
-.container .box {
+.container .card {
    position: relative;
    width: 320px;
    height: 400px;
-   background: #f00;
-   margin: 20px 20px;
+   background: #ff0058;
+   margin: 40px 30px;
    display: flex;
    justify-content: center;
    align-items: center;
-   overflow: hidden;
+   border-radius: 4px;
 }
 
-.container .box::before {
+.container .card::before {
    content: '';
    position: absolute;
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(315deg, #4dff03, #00d0ff);
 }
 
-.container .box::after {
+.container .card::after {
    content: '';
    position: absolute;
    top: 0;
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(315deg, #4dff03, #00d0ff);
    filter: blur(30px);
 }
 
-.container .box:nth-child(1)::before,
-.container .box:nth-child(1)::after {
+.container .card:nth-child(1)::before,
+.container .card:nth-child(1)::after {
    background: linear-gradient(315deg, #ff0058, #ffbc00);
 }
 
-.container .box:nth-child(2)::before,
-.container .box:nth-child(2)::after {
+.container .card:nth-child(2)::before,
+.container .card:nth-child(2)::after {
    background: linear-gradient(315deg, #00d0ff, #ff0058);
 }
 
-.container .box b {
+.container .card:nth-child(3)::before,
+.container .card:nth-child(3)::after {
+   background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+
+.container .card b {
    position: absolute;
    inset: 6px;
    background: rgba(0, 0, 0, 0.6);
    z-index: 2;
+   border-radius: 6px;
 }
 
-.container .box img {
+.container .card img {
    position: absolute;
    z-index: 4;
    scale: 0.4;
@@ -82,13 +86,17 @@ body {
    transition: all 0.5s ease;
 }
 
-.container .box:hover img {
+.container .card img.rounded {
+   border-radius: 6px;
+}
+
+.container .card:hover img {
    scale: 0.25;
    opacity: 0.95;
    transform: translateY(-170px);
 }
 
-.container .box .content {
+.container .card .content {
    position: absolute;
    display: flex;
    flex-direction: column;
@@ -102,19 +110,19 @@ body {
    transition: all 0.5s ease;
 }
 
-.container .box:hover .content {
+.container .card:hover .content {
    opacity: 1;
    transform: translateY(130px);
 }
 
-.container .box .content span {
+.container .card .content span {
    font-size: 1.25rem;
    line-height: 1rem;
    font-weight: 400;
    margin-bottom: .75rem;
 }
 
-.container .box .content ul {
+.container .card .content ul {
    width: 75%;
    display: flex;
    justify-content: space-evenly;
@@ -122,16 +130,10 @@ body {
    list-style-type: none;
 }
 
-.container .box .content ul li i {
+.container .card .content ul li i {
    color: lightgray;
 }
 
-/* .container .box b::before {
-   content: '';
-   position: absolute;
-   inset: 6px;
-   width: calc(100% - 12px);
-   height: calc(100% - 12px);
-   background: rgb(0, 0, 0);
-   z-index: 4;
-} */
+.container .card .content ul li i:hover {
+   color: rgb(96, 96, 96);
+}
