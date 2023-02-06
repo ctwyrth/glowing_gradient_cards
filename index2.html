@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Glowing Gradient Cards</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" type="text/css" href="style2.css">
+   </head>
+
+   <body>
+      <div class="container" id="card-box">
+      </div>
+   </body>
+   
+   <script>
+      const people = [
+         {
+            name: 'James Skullcap',
+            position: 'Urbanwear CEO',
+            image: './images/black_man.jpg',
+            startColor: '#ffbc00',
+            endColor: '#ff0058',
+         },
+         {
+            name: 'Emma Ponytail',
+            position: 'Social Media Strategist',
+            image: './images/white_woman.jpg',
+            startColor: '#ff0058',
+            endColor: '#00d0ff',
+         },
+         {
+            name: 'Ed Bigbeard',
+            position: 'Bartender',
+            image: './images/white_man.jpg',
+            startColor: '#00d0ff',
+            endColor: '#4dff03',
+         },
+         {
+            name: 'Mitsuko Goldhoops',
+            position: 'Jewelry Designer',
+            image: './images/asian_woman.jpg',
+            startColor: '#4dff03',
+            endColor: '#ffbc00',
+         },
+         {
+            name: 'Jasmin Longbraids',
+            position: 'Overalls CTO',
+            image: './images/black_woman.jpg',
+            startColor: '#ffbc00',
+            endColor: '#ff0058',
+         },
+         {
+            name: 'Jimmy Whiteshirt',
+            position: 'Actor',
+            image: './images/asian_man.jpg',
+            startColor: '#ff0058',
+            endColor: '#00d0ff',
+         },
+      ];
+
+      let box = document.getElementById('card-box');
+
+      people.forEach((person, idx) => {
+         let card = document.createElement('div');
+         card.classList.add('card');
+         card.setAttribute('key', idx);
+         card.style.setProperty('--start', person.startColor);
+         card.style.setProperty('--end', person.endColor);
+
+         let b = document.createElement('b');
+         card.appendChild(b);
+
+         let image = document.createElement('img');
+         image.src = person.image;
+         card.appendChild(image);
+
+         let content = document.createElement('div');
+         content.classList.add('content');
+
+         let name = document.createElement('h2');
+         name.innerText = person.name;
+         content.appendChild(name);
+
+         let job = document.createElement('span');
+         job.innerText = person.position;
+         content.appendChild(job);
+
+         let socials = document.createElement('ul');
+         socials.classList.add('sci');
+         socials.innerHTML = '<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li><li><a href="#"><i class="fa-brands fa-twitter"></i></a></li><li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li><li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>';
+         content.append(socials);
+
+         card.append(content);
+         box.append(card);
+      });
+
+      console.log(box);
+   </script>
+</html>

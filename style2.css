@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+   --start: #00d0ff;
+   --end: #4dff03;
+}
+
 * {
    margin: 0;
    padding: 0;
@@ -55,19 +60,9 @@ body {
    filter: blur(30px);
 }
 
-.container .card:nth-child(1)::before,
-.container .card:nth-child(1)::after {
-   background: linear-gradient(315deg, #ff0058, #ffbc00);
-}
-
-.container .card:nth-child(2)::before,
-.container .card:nth-child(2)::after {
-   background: linear-gradient(315deg, #00d0ff, #ff0058);
-}
-
-.container .card:nth-child(3)::before,
-.container .card:nth-child(3)::after {
-   background: linear-gradient(315deg, #4dff03, #00d0ff);
+.container .card::before,
+.container .card::after {
+   background: linear-gradient(315deg, var(--end), var(--start));
 }
 
 .container .card b {
@@ -83,10 +78,6 @@ body {
    scale: 0.4;
    opacity: 0.25;
    transition: all 0.5s ease;
-}
-
-.container .card img.rounded {
-   border-radius: 6px;
 }
 
 .container .card:hover img {
@@ -134,5 +125,5 @@ body {
 }
 
 .container .card .content ul li i:hover {
-   color: rgb(96, 96, 96);
+   color: var(--start);
 }
